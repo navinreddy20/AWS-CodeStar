@@ -1,0 +1,46 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Entering install phase...
+      - echo Nothing to do in the install phase...
+  pre_build:
+    commands:
+      - echo Entering pre_build phase...
+      - echo Nothing to do in the pre_build phase...
+  build:
+    commands:
+      - echo Entering build phase...
+      - echo Build started on `date`
+      - mvn -f pom.xml compile war:exploded
+  post_build:
+    commands:
+      - echo Entering post_build phase...
+      - echo Build completed on `date`
+      - mv target/ROOT .
+artifacts:
+  type: zip
+  files:
+    - 'ROOT/WEB-INF/classes/application.properties'
+    - 'ROOT/WEB-INF/classes/com/aws/codestar/projecttemplates/HelloWorldAppInitializer.class'
+    - 'ROOT/WEB-INF/classes/com/aws/codestar/projecttemplates/configuration/ApplicationConfig.class'
+    - 'ROOT/WEB-INF/classes/com/aws/codestar/projecttemplates/configuration/MvcConfig.class'
+    - 'ROOT/WEB-INF/classes/com/aws/codestar/projecttemplates/controller/HelloWorldController.class'
+    - 'ROOT/WEB-INF/lib/aopalliance-1.0.jar'
+    - 'ROOT/WEB-INF/lib/commons-fileupload-1.3.2.jar'
+    - 'ROOT/WEB-INF/lib/commons-io-2.2.jar'
+    - 'ROOT/WEB-INF/lib/commons-logging-1.2.jar'
+    - 'ROOT/WEB-INF/lib/servlet-api-2.5.jar'
+    - 'ROOT/WEB-INF/lib/spring-aop-4.2.6.RELEASE.jar'
+    - 'ROOT/WEB-INF/lib/spring-beans-4.2.6.RELEASE.jar'
+    - 'ROOT/WEB-INF/lib/spring-context-4.2.6.RELEASE.jar'
+    - 'ROOT/WEB-INF/lib/spring-core-4.2.6.RELEASE.jar'
+    - 'ROOT/WEB-INF/lib/spring-expression-4.2.6.RELEASE.jar'
+    - 'ROOT/WEB-INF/lib/spring-web-4.2.6.RELEASE.jar'
+    - 'ROOT/WEB-INF/lib/spring-webmvc-4.2.6.RELEASE.jar'
+    - 'ROOT/WEB-INF/views/index.jsp'
+    - 'ROOT/resources/gradients.css'
+    - 'ROOT/resources/set-background.js'
+    - 'ROOT/resources/styles.css'
+    - 'ROOT/resources/tweet.svg'
