@@ -40,6 +40,7 @@ artifacts:
     - 'ROOT/WEB-INF/lib/spring-web-4.2.6.RELEASE.jar'
     - 'ROOT/WEB-INF/lib/spring-webmvc-4.2.6.RELEASE.jar'
     - 'ROOT/WEB-INF/views/index.jsp'
+    - 'ROOT/WEB-INF/views/myPage.jsp'
     - 'ROOT/resources/gradients.css'
     - 'ROOT/resources/set-background.js'
     - 'ROOT/resources/styles.css'
