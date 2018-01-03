@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.aws.codestar.projecttemplates.model.Alien;
@@ -33,6 +34,19 @@ public class HelloWorldController {
         ModelAndView mav = new ModelAndView("index");
         mav.addObject("siteName", this.siteName);
         return mav;
+    }
+    
+    @RequestMapping("check")
+    @ResponseBody
+    @Transactional
+    public String check()
+    {
+    	Session session = sf.getCurrentSession();
+    	Alien a = new Alien();
+    	String before = a.toString();
+    	a = session.get(Alien.class, 501);
+    	String after = a.toString();
+    	return "Running : " + before + " : " + after ;
     }
     
     @RequestMapping("my")

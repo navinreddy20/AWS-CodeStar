@@ -52,11 +52,11 @@ public class ApplicationConfig {
   public DataSource getDataSource() {
       BasicDataSource dataSource = new BasicDataSource();
       dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-     //dataSource.setUrl("jdbc:mysql://localhost:3306/datajava");
-     dataSource.setUrl("jdbc:mysql://datajava.cksi1sdzwfpw.us-east-2.rds.amazonaws.com:3306/datajava");
+     dataSource.setUrl("jdbc:mysql://localhost:3306/datajava");
+     //dataSource.setUrl("jdbc:mysql://datajava.cksi1sdzwfpw.us-east-2.rds.amazonaws.com:3306/datajava");
       dataSource.setUsername("root");
-      dataSource.setPassword("abcd1234");
-      
+     // dataSource.setPassword("abcd1234");
+      dataSource.setPassword("0");
       return dataSource;
   }
   
