@@ -2,11 +2,10 @@ package com.aws.codestar.projecttemplates.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name="alien_info")
-public class Alien {
+public class Alien 
+{
 	@Id
 	private int aid;
 	private String aname;
@@ -33,7 +32,6 @@ public class Alien {
 	public String toString() {
 		return "Alien [aid=" + aid + ", aname=" + aname + ", tech=" + tech + "]";
 	}
-	
 	
 	
 }

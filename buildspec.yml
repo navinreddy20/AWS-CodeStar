@@ -26,7 +26,8 @@ artifacts:
     - 'ROOT/WEB-INF/classes/com/aws/codestar/projecttemplates/HelloWorldAppInitializer.class'
     - 'ROOT/WEB-INF/classes/com/aws/codestar/projecttemplates/configuration/*'
     - 'ROOT/WEB-INF/classes/com/aws/codestar/projecttemplates/controller/*'
-    - 'ROOT/WEB-INF/classes/com/aws/codestar/projecttemplates/model/*'
+   - 'ROOT/WEB-INF/classes/com/aws/codestar/projecttemplates/model/*'
+   - 'ROOT/WEB-INF/classes/com/aws/codestar/projecttemplates/dao/*'
     
     - 'ROOT/WEB-INF/lib/*'
     - 'ROOT/WEB-INF/views/*'

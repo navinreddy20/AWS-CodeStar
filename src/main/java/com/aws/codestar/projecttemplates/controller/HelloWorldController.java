@@ -1,16 +1,14 @@
 package com.aws.codestar.projecttemplates.controller;
 
-import javax.transaction.Transactional;
-
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.aws.codestar.projecttemplates.dao.AlienDao;
 import com.aws.codestar.projecttemplates.model.Alien;
 
 /**
@@ -21,7 +19,7 @@ import com.aws.codestar.projecttemplates.model.Alien;
 public class HelloWorldController {
 
 	@Autowired
-	SessionFactory sf;
+	AlienDao dao;
 	
     private final String siteName;
 
@@ -36,33 +34,24 @@ public class HelloWorldController {
         return mav;
     }
     
-    @RequestMapping("check")
-    @ResponseBody
-    @Transactional
-    public String check()
-    {
-    	Session session = sf.getCurrentSession();
-    	Alien a = new Alien();
-    	String before = a.toString();
-    	a = session.get(Alien.class, 501);
-    	String after = a.toString();
-    	return "Running : " + before + " : " + after ;
-    }
     
     @RequestMapping("my")
-    @Transactional
     public ModelAndView welcome()
     {
     	ModelAndView mv = new ModelAndView("myPage");
     	
-    	Session session = sf.getCurrentSession();
-    	Alien a = new Alien();
-    	a.setAid(501);
-    	a.setAname("Mayank");
-    	a.setTech("ML");
+    	return mv;
     	
-    	session.save(a);
+    }
+    
+    @RequestMapping("alien/{aid}")
+    public ModelAndView getAlien(@PathVariable("aid") int aid)
+    {
+    	ModelAndView mv = new ModelAndView();
+    	mv.setViewName("showAlien");
     	
+    	Alien a = dao.getAlien(aid);
+    	mv.addObject("alien",a);
     	
     	return mv;
     	
