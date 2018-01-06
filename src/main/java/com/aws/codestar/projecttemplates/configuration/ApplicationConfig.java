@@ -63,7 +63,7 @@ public class ApplicationConfig {
 //      dataSource.setPassword("0");
        dataSource.setJdbcUrl("jdbc:mysql://youtube.cksi1sdzwfpw.us-east-2.rds.amazonaws.com:3306/telusko");
         dataSource.setUser("root");
-        dataSource.setPassword("abcd1234");
+        dataSource.setPassword("0000");
        
         return dataSource;
     }
